@@ -14,6 +14,14 @@ function App() {
   const [keyword, setKeyword] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
 
+  const resetFilters = () => {
+    setCategoryType(0);
+    setLevelType(0);
+    setOrder(1);
+    setKeyword("");
+    setSearchKeyword("");
+  };
+
   useEffect(() => {
     axios
       .get(
@@ -51,10 +59,18 @@ function App() {
               value={keyword}
               onChange={(e) => {
                 setKeyword(e.target.value);
+                placeholder = "과목명 검색"; /* 보너스: placeholder 추가 */
               }}
             ></input>
             <button type="submit" className={styles.button}>
               검색
+            </button>
+            <button
+              type="button"
+              className={`${styles.button} ${styles.reset_btn}`}
+              onClick={resetFilters}
+            >
+              초기화
             </button>
           </form>
 
@@ -122,11 +138,15 @@ function App() {
                       : "DB"}
                 </li>
                 <li className={styles.subject_level}>
-                  {subject.subjectLevel === 1
-                    ? "초급"
-                    : subject.subjectLevel === 2
-                      ? "중급"
-                      : "고급"}
+                  <span
+                    className={`${styles.level_badge} ${styles["level_" + subject.subjectLevel]}`}
+                  >
+                    {subject.subjectLevel === 1
+                      ? "초급"
+                      : subject.subjectLevel === 2
+                        ? "중급"
+                        : "고급"}
+                  </span>
                 </li>
                 <li className={styles.subject_count}>{subject.subjectCount}</li>
               </ul>

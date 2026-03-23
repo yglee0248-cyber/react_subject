@@ -22,16 +22,16 @@
             order by subject_no desc
         </if>
         <if test="order == 2">
-            order by subject_level asc
+            order by subject_level asc, subject_no desc
         </if>
         <if test="order == 3">
-            order by subject_level desc
+            order by subject_level desc, subject_no desc
         </if>
         <if test="order == 4">
-            order by subject_count asc
+            order by subject_count asc, subject_no desc
         </if>
         <if test="order == 5">
-            order by subject_count desc
+            order by subject_count desc, subject_no desc
         </if>
  	</select>
  	
