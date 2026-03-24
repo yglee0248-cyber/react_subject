@@ -6,10 +6,10 @@ import axios from "axios";
 function App() {
   const [subjectList, setSubjectList] = useState([]);
 
-  const [categoryType, setCategoryType] = useState(0); //0 : 모든 카테고리 / 1 : 프론트엔드 / 2 : 백엔드 / 3 : DB
+  const [categoryType, setCategoryType] = useState(0); //0 : 모든 카테고리 / 1 : 백엔드 / 2 : 프론트엔드 / 3 : DB
   const [levelType, setLevelType] = useState(0); //0 : 모든 난이도 / 1 : 초급 / 2 : 중급 / 3 : 고급
 
-  const [order, setOrder] = useState(1); //1 : 작성순 / 2 : 난이도 오름차순 / 3 : 난이도 내림차순 / 4 : 수강인원 오름차순 / 5 : 수강인원 내림차순
+  const [order, setOrder] = useState(1); //1 : 작성순 / 2 : 난이도 오름차순 / 3 :qor 난이도 내림차순 / 4 : 수강인원 오름차순 / 5 : 수강인원 내림차순
 
   const [keyword, setKeyword] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -82,8 +82,8 @@ function App() {
             }}
           >
             <option value={0}>모든 카테고리</option>
-            <option value={1}>프론트엔드</option>
-            <option value={2}>백엔드</option>
+            <option value={1}>백엔드</option>
+            <option value={2}>프론트엔드</option>
             <option value={3}>DB</option>
           </select>
 
